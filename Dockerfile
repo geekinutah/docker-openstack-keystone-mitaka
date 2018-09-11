@@ -10,7 +10,7 @@ RUN apt-get -q update >/dev/null \
   && apt-get install -y python python-dev curl build-essential git \
   && git clone --branch mitaka-eol https://github.com/openstack/keystone.git \
   && curl https://bootstrap.pypa.io/get-pip.py | python \
-  && fix_requirements.py --map_file libs.vers --requirements_file keystone/requirements.txt --inplace 
+  && fix_requirements.py --map_file libs.vers --requirements_file keystone/requirements.txt --inplace \
   && pip install keystone/ \
   # Cleanup
   && apt-get clean autoclean \
