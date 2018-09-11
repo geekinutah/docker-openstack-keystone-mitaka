@@ -17,4 +17,4 @@ RUN apt-get -q update >/dev/null \
   && apt-get autoremove --yes \
   && rm -rf /var/lib/{apt,dpkg,cache,log}/ 
 
-ENTRYPOINT ["/usr/bin/true"]
+ENTRYPOINT ["/bin/bash"]
