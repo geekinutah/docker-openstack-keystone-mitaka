@@ -14,9 +14,13 @@ RUN apt-get -q update >/dev/null \
   && pip install keystone/ \
   && pip install mysqlclient==1.3.4 \
   && pip install PyMySQL==0.6.7 \
+  && pip install Jinja \
+  && mkdir /etc/keystone
   # Cleanup
   && apt-get clean autoclean \
   && apt-get autoremove --yes \
   && rm -rf /var/lib/{apt,dpkg,cache,log}/ 
+
+COPY keystone.conf.j2 /etc/keystone/keystone.conf.j2
 
 ENTRYPOINT ["/bin/bash"]
