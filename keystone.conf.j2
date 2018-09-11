@@ -2,12 +2,12 @@
 admin_token = G8tujV9IACJb3MK96gdFSFoL
 admin_endpoint = http://{{HOST_ADDRESS}}:35357
 secure_proxy_ssl_header = HTTP_X_FORWARDED_PROTO
-#debug = True
-#verbose = True
+debug = True
+verbose = True
 use_stderr = True
 public_port=5000
-admin_bind_host={{HOST_ADDRESS}}172.17.0.3
-public_bind_host={{HOST_ADDRESS}}172.17.0.3
+admin_bind_host={{HOST_ADDRESS}}
+public_bind_host={{HOST_ADDRESS}}
 use_syslog_rfc_format=True
 admin_port=35357
 notification_topics=notifications
@@ -34,8 +34,8 @@ max_retries = -1
 max_overflow = 60
 
 [eventlet_server]
-public_workers = 30
-admin_workers = 30
+public_workers = 1
+admin_workers = 1
 
 [fernet_tokens]
 key_repository = /etc/keystone/fernet-keys

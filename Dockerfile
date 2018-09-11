@@ -5,6 +5,7 @@ ENV TERM=xterm-256color
 
 COPY fix-requirements.py /usr/bin/fix-requirements.py
 COPY libs.vers /libs.vers
+COPY openrc.j2 /openrc.j2
 
 RUN apt-get -q update >/dev/null \
   && apt-get install -y python python-dev curl build-essential git libssl-dev libmysqlclient-dev \
@@ -22,5 +23,7 @@ RUN apt-get -q update >/dev/null \
   && rm -rf /var/lib/{apt,dpkg,cache,log}/ 
 
 COPY keystone.conf.j2 /etc/keystone/keystone.conf.j2
+COPY keystone-paste.ini /etc/keystone/keystone-paste.ini
+COPY start_keystone.sh /usr/bin/start_keystone.sh
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/usr/bin/start_keystone.sh"]
