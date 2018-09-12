@@ -1,6 +1,6 @@
 [DEFAULT]
 admin_token = G8tujV9IACJb3MK96gdFSFoL
-admin_endpoint = http://{{env['HOST_ADDRESS']}}:35357
+admin_endpoint = http://{{env['HOST_ADDRESS'].rstrip()}}:35357
 secure_proxy_ssl_header = HTTP_X_FORWARDED_PROTO
 debug = True
 verbose = True
